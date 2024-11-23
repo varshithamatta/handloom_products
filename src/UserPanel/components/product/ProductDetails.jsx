@@ -1,27 +1,19 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    theme: {
-      extend: {
-        gridTemplateRows: {
-          '[auto,auto,1fr]': 'auto auto 1fr',
-        },
-      },
-    },
-  }
-  ```
-*/
-"use client";
-
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
-import { Button, Grid, Grid2, Rating } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  Grid2,
+  LinearProgress,
+  Rating,
+} from "@mui/material";
 import ProductReviewCard from "./ProductReviewCard";
+import { Line } from "rc-progress";
+import { green } from "@mui/material/colors";
+import { men_kurtas } from "../../data/mens_kurtas";
+import HomeDisplayCard from "../homedisplaycard/HomeDisplayCard";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -289,19 +281,126 @@ export default function ProductDetails() {
             </div>
           </div>
         </section>
-   
+
         {/* rating and reviews */}
         <section className="mb-10">
-            <h1 className="font-semibold text-lg pb-4">Recent Review & Rating</h1>
-            <div className="border p-5">
-                <Grid2 container spacing={7}>
-                    <Grid2 item xs={7}>
-                        <div className="space-y-5">
-                            { [1,1,1].map((item) =><ProductReviewCard/>)}
-                        </div>
+          <h1 className="font-semibold text-lg pb-4">Recent Review & Rating</h1>
+          <div className="border p-5">
+            <Grid2 container spacing={7}>
+              <Grid2 item xs={7}>
+                <div className="space-y-5">
+                  {[1, 1, 1].map((item, index) => (
+                    <ProductReviewCard key={index} />
+                  ))}
+                </div>
+                <div></div>
+              </Grid2>
+              <Grid2 item xs={5}>
+                <h1 className="text-xl font-semibold pb-2">Product Ratings</h1>
+                <div className="flex items-center space-x-3 text-left">
+                  <Rating value={4.6} precision={0.5} readOnly />
+                  <p className="opacity-60">594890 Ratings</p>
+                </div>
+                <Box className="mt-5 space-y-3">
+                  <Grid2 container alignItems="center" gap={3.5}>
+                    {/* Excellent Text */}
+                    <Grid2 item xs={2}>
+                      <p>Excellent</p>
                     </Grid2>
-                </Grid2>
-            </div>
+
+                    {/* Progress Line */}
+                    <Grid2 item xs={7}>
+                      <Line
+                        percent={70}
+                        strokeColor="green"
+                        strokeWidth={2}
+                        trailWidth={2}
+                        style={{ width: "100%" }}
+                      />
+                    </Grid2>
+                  </Grid2>
+                  <Grid2 container alignItems="center" gap={2}>
+                    {/* Very Good Text */}
+                    <Grid2 item xs={2}>
+                      <p>Very Good</p>
+                    </Grid2>
+
+                    {/* Progress Line */}
+                    <Grid2 item xs={7}>
+                      <Line
+                        percent={30}
+                        strokeColor="green"
+                        strokeWidth={2}
+                        trailWidth={2}
+                        style={{ width: "100%" }}
+                      />
+                    </Grid2>
+                  </Grid2>
+                  <Grid2 container alignItems="center" gap={6.3}>
+                    {/* Excellent Text */}
+                    <Grid2 item xs={2}>
+                      <p>Good</p>
+                    </Grid2>
+
+                    {/* Progress Line */}
+                    <Grid2 item xs={7}>
+                      <Line
+                        percent={25}
+                        strokeColor="green"
+                        strokeWidth={2}
+                        trailWidth={2}
+                        style={{ width: "100%" }}
+                      />
+                    </Grid2>
+                  </Grid2>
+                  <Grid2 container alignItems="center" gap={4}>
+                    {/* Excellent Text */}
+                    <Grid2 item xs={2}>
+                      <p>Average</p>
+                    </Grid2>
+
+                    {/* Progress Line */}
+                    <Grid2 item xs={7}>
+                      <Line
+                        percent={20}
+                        strokeColor="#ff9100"
+                        strokeWidth={2}
+                        trailWidth={2}
+                        style={{ width: "100%" }}
+                      />
+                    </Grid2>
+                  </Grid2>
+                  <Grid2 container alignItems="center" gap={7.1}>
+                    {/* Excellent Text */}
+                    <Grid2 item xs={2}>
+                      <p>Poor</p>
+                    </Grid2>
+
+                    {/* Progress Line */}
+                    <Grid2 item xs={7}>
+                      <Line
+                        percent={15}
+                        strokeColor="#ff1744"
+                        strokeWidth={2}
+                        trailWidth={2}
+                        style={{ width: "100%" }}
+                      />
+                    </Grid2>
+                  </Grid2>
+                </Box>
+              </Grid2>
+            </Grid2>
+          </div>
+        </section>
+
+        {/*similar products*/}
+        <section className="pt-10">
+          <h1 className="py-5 text-xl font-bold">Similar Products</h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+            {men_kurtas.map((item, index) => (
+              <HomeDisplayCard key={index} product={item} />
+            ))}
+          </div>
         </section>
       </div>
     </div>
