@@ -1,8 +1,8 @@
-import { IconButton } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import React from "react";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import { Button } from "@headlessui/react";
+
 import { color } from "../product/FilterData";
 
 const CartItem = () => {
@@ -30,7 +30,7 @@ const CartItem = () => {
         </div>
       </div>
       <div className="lg:flex items-center lg:space-x-10 pt-4">
-        <div className="felx items-center space-x-2">
+        <div className="flex items-center space-x-2">
           <IconButton>
             <RemoveCircleOutlineIcon />
           </IconButton>
@@ -41,7 +41,7 @@ const CartItem = () => {
         </div>
 
         <div>
-          <Button>REMOVE</Button>
+          <Button sx={{ color: "#F8962F" }}>REMOVE</Button>
         </div>
       </div>
     </div>

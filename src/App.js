@@ -5,6 +5,7 @@ import ProductsDisplay from "./UserPanel/components/product/ProductsDisplay";
 import Footer from "./UserPanel/components/footer/Footer";
 import ProductDetails from "./UserPanel/components/product/ProductDetails";
 import Cart from "./UserPanel/components/cart/Cart";
+import Checkout from "./UserPanel/components/checkout/Checkout";
 
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
       {/* <HomePage/> */}
       {/* <ProductsDisplay/> */}
       {/* <ProductDetails/> */}
-      <Cart/>
+      {/* <Cart/> */}
+      <Checkout/>
       <Footer />
     </div>
   );
