@@ -6,6 +6,7 @@ import Footer from "./UserPanel/components/footer/Footer";
 import ProductDetails from "./UserPanel/components/product/ProductDetails";
 import Cart from "./UserPanel/components/cart/Cart";
 import Checkout from "./UserPanel/components/checkout/Checkout";
+import Order from "./UserPanel/components/order/Order";
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
       {/* <ProductsDisplay/> */}
       {/* <ProductDetails/> */}
       {/* <Cart/> */}
-      <Checkout/>
+      {/* <Checkout/> */}
+      <Order/>
       <Footer />
     </div>
   );
