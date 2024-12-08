@@ -1,8 +1,8 @@
-export const men_shirts = [
+export const mens_shirts = [
     {
       imageUrl: "https://m.media-amazon.com/images/I/71vPfjxEx7L.AC_UL640_QL65.jpg",
       brand: "S-LINE",
-      title: "S-LINE Shirt for Men | Cotton, Skin Friendly Fabric, Regular Fit | Long Sleeve Printed Casual Wear Shirt with Spread Collar | Regular Wear | Size - S to XXL",
+      title: "S-LINE Long Sleeve Printed Casual Wear Shirt with Spread Collar",
       color: "White",
       discountedPrice: 449,
       price: 1499,

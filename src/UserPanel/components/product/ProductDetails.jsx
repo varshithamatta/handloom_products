@@ -14,6 +14,7 @@ import { Line } from "rc-progress";
 import { green } from "@mui/material/colors";
 import { men_kurtas } from "../../data/mens_kurtas";
 import HomeDisplayCard from "../homedisplaycard/HomeDisplayCard";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -25,7 +26,7 @@ const product = {
   ],
   images: [
     {
-      src: "https://tailwindui.com/plus/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+      src: "https://m.media-amazon.com/images/I/81AFxU2P5JL._SY879_.jpg",
       alt: "Two each of gray, white, and black shirts laying flat.",
     },
     {
@@ -68,73 +69,31 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function ProductDetails() {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
+export default function ProductDetails({ products }) {
+  
+  const location = useLocation();
+  const navigate = useNavigate();
+ // Fallback to an empty object if `product` is undefined
+
+  const [selectedColor, setSelectedColor] = useState(product.colors?.[0] || {});
+  const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] || {});
+
+  const handleCart = () => {
+    navigate(`/cart`);
+  };
 
   return (
     <div className="bg-white lg:px-20">
       <div className="pt-6">
-        <nav aria-label="Breadcrumb">
-          <ol
-            role="list"
-            className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-          >
-            {product.breadcrumbs.map((breadcrumb) => (
-              <li key={breadcrumb.id}>
-                <div className="flex items-center">
-                  <a
-                    href={breadcrumb.href}
-                    className="mr-2 text-sm font-medium text-gray-900"
-                  >
-                    {breadcrumb.name}
-                  </a>
-                  <svg
-                    fill="currentColor"
-                    width={16}
-                    height={20}
-                    viewBox="0 0 16 20"
-                    aria-hidden="true"
-                    className="h-5 w-4 text-gray-300"
-                  >
-                    <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
-                  </svg>
-                </div>
-              </li>
-            ))}
-            <li className="text-sm">
-              <a
-                href={product.href}
-                aria-current="page"
-                className="font-medium text-gray-500 hover:text-gray-600"
-              >
-                {product.name}
-              </a>
-            </li>
-          </ol>
-        </nav>
 
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10 px-4 pt-10">
           {/* Image gallery */}
           <div className="flex flex-col items-center">
             <div className="overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem]">
               <img
-                alt={product.images[0].alt}
                 src={product.images[0].src}
                 className="hidden aspect-[3/4] size-full rounded-lg object-cover lg:block"
               />
-            </div>
-
-            <div className="flex flex-wrap space-x-5 justify-center">
-              {product.images.map((item) => (
-                <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg max-w-[5rem] max-h-[5rem] mt-4">
-                  <img
-                    alt={item.alt}
-                    src={item.src}
-                    className="aspect-[3/2] size-full rounded-lg object-cover"
-                  />
-                </div>
-              ))}
             </div>
           </div>
 
@@ -142,10 +101,10 @@ export default function ProductDetails() {
           <div className="lg:col-span-1 maxt-auto  max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8 lg:pb-24">
             <div className="lg:col-span-2">
               <h1 className="text-lg lg:text-xl font-semibold text-gray-900 text-left">
-                NoBrand
+              NoBrand
               </h1>
               <h1 className="text-lg lg:text-xl text-gray-900 opacity-60 pt-1 text-left">
-                NoBrand Women's Chikankari Embroidered Naira Cut Kurta
+              NoBrand Women's Chikankari Embroidered Naira Cut Kurta
               </h1>
             </div>
 
@@ -229,6 +188,7 @@ export default function ProductDetails() {
 
                 <div style={{ display: "flex", justifyContent: "flex-start" }}>
                   <Button
+                    onClick={handleCart}
                     variant="contained"
                     sx={{
                       px: "2rem",
