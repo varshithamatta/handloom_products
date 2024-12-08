@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/handloom_products/static/css/main.4e209ab0.css",
+    "main.js": "/handloom_products/static/js/main.2ee0e9b1.js",
+    "static/js/453.e2fa0fbe.chunk.js": "/handloom_products/static/js/453.e2fa0fbe.chunk.js",
+    "static/media/Screenshot 2024-10-29 113106.png": "/handloom_products/static/media/Screenshot 2024-10-29 113106.2cbeab5d8af229281d5d.png",
+    "static/media/logo.svg": "/handloom_products/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/handloom_products/index.html",
+    "main.4e209ab0.css.map": "/handloom_products/static/css/main.4e209ab0.css.map",
+    "main.2ee0e9b1.js.map": "/handloom_products/static/js/main.2ee0e9b1.js.map",
+    "453.e2fa0fbe.chunk.js.map": "/handloom_products/static/js/453.e2fa0fbe.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e209ab0.css",
+    "static/js/main.2ee0e9b1.js"
+  ]
+}
