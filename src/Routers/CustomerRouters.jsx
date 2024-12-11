@@ -17,7 +17,7 @@ const CustomerRouters = () => {
         <Navigation />
         </div>
       <Routes>
-        <Route path='/' element={<HomePage/>}></Route>
+        <Route path='/handloom_products' element={<HomePage/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
         <Route path='/:levelOne/:levelTwo/:levelThree' element={<ProductsDisplay/>}></Route>
         <Route path='/product/:productId' element={<ProductDetails/>}></Route>
