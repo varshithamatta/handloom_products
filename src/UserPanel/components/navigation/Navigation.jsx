@@ -343,7 +343,7 @@ export default function Navigation() {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="/">
+                <a href="/handloom_products">
                   <span className="sr-only">Your Company</span>
                   <HandshakeIcon className="text-orange-500 w-6 h-6" />
                 </a>
